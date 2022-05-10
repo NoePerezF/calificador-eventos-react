@@ -14,6 +14,7 @@ const ProgramarEvento = () => {
 
     const enviar = async() =>{
         const evento = {nombre : nombre,fecha : fecha}
+        console.log(evento);
         const bodyJson = JSON.stringify(evento)
         try{
             const response = await fetch('https://calificador-eventos.herokuapp.com/api/nuevoevento',{ 
