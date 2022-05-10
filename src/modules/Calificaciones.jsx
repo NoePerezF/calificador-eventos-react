@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SockJsClient from 'react-stomp';
+import Menu from '../../../../gisnet/e-gisfil-gestor-frontend/src/modules/Menu';
 
 const Calificaciones = () => {
   const SOCKET_URL = 'https://calificador-eventos.herokuapp.com/ws'
@@ -36,7 +37,10 @@ const Calificaciones = () => {
   }, [])
   
   return (
-    !activo ? 
+    
+    <>
+    <Menu/>
+    {!activo ? 
     <div className='container d-flex justify-content-center align-items-center h-100 '>
       <div className='container  align-items-center justify-content-center  '>
         <h1>No hay evento activo</h1>
@@ -114,6 +118,8 @@ const Calificaciones = () => {
 
       </div>
   </div>
+}
+  </>
   )
 }
 
