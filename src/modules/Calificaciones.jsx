@@ -27,6 +27,9 @@ const Calificaciones = () => {
         const responseJson = await response.json()
         if(responseJson.status !== 2){
             setactivo(true)
+            setejecucion(responseJson.ejecucion)
+          setimpresion(responseJson.impresionArtistica)
+          setdificultad(responseJson.dificultad)
         }
       }
       catch(e){
