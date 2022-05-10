@@ -41,8 +41,9 @@ const ProgramarEvento = () => {
       <>
       <Menu/>
     <div className='container d-flex justify-content-center align-items-center h-100 w-100'>
-        <div class="form-group">
     <form>
+        <div class="form-group">
+    
     <label for="exampleInputEmail1">Nombre</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
     <small id="emailHelp" class="form-text text-muted">Intenta usar diferentes nombres para identificarlos</small>
