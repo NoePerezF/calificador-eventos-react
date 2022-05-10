@@ -50,7 +50,7 @@ const EventosProgramados = () => {
                     <tr>
                         <td>{e.nombre}</td>
                         <td>{getDate(e.fecha)}</td>
-                        {e.stado === 1 ? 
+                        {e.estado === 1 ? 
                             <td>Creado</td> :
                          e.estado === 2 ?
                          <td>Activo</td>:
