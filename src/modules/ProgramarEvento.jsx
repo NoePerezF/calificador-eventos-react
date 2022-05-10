@@ -11,7 +11,7 @@ const ProgramarEvento = () => {
         setfecha(e.target.value)
     }
 
-    const enviar = () =>{
+    const enviar = async() =>{
         const evento = {nombre : nombre,fecha : fecha}
         const bodyJson = JSON.stringify(evento)
         try{
