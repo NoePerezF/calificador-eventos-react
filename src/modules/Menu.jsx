@@ -11,7 +11,7 @@ const Menu = () => {
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="#">Evento Activo</a>
       <Link to="/eventos" className='nav-item nav-link'>Eventos programados</Link>
-      <a class="nav-item nav-link" href="#">Programar evento</a>
+      <Link to="/nuevoevento" className='nav-item nav-link'>Programar evento</Link>
     </div>
   </div>
 </nav>
