@@ -36,12 +36,14 @@ const EventosProgramados = () => {
             </thead>
             <tbody>
                 {eventos.map(e =>{
+                    return(
                     <tr>
                         <td>{e.nombre}</td>
                         <td>{e.fecha}</td>
                         <td>{e.estado}</td>
                         <th scope="col">Activar</th>
                     </tr>
+                    )
                 })}
                 
   </tbody>
