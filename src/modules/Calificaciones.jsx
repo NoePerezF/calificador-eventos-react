@@ -14,22 +14,26 @@ const Calificaciones = () => {
     setdificultad(m.dificultad)
   }
   useEffect(() => {
-    try{
-      const response = await fetch('https://calificador-eventos.herokuapp.com/api/eventoactivo',{ 
-          headers : { 'Content-Type': 'application/json' },
-          method: 'POST',
-          mode: 'cors', // <---
-          cache: 'default',
-          body: requestJson
-        })
-      const responseJson = await response.json()
-      if(responseJson.status !== 2){
-          setactivo(true)
+    const isEventoActivo = async() =>{
+      try{
+        const response = await fetch('https://calificador-eventos.herokuapp.com/api/eventoactivo',{ 
+            headers : { 'Content-Type': 'application/json' },
+            method: 'POST',
+            mode: 'cors', // <---
+            cache: 'default',
+            body: requestJson
+          })
+        const responseJson = await response.json()
+        if(responseJson.status !== 2){
+            setactivo(true)
+        }
+      }
+      catch(e){
+        console.log("Error : "+e);
       }
     }
-    catch(e){
-      console.log("Error : "+e);
-    }
+    isEventoActivo()
+    
   }, [])
   
   return (

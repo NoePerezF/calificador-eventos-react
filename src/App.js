@@ -7,7 +7,7 @@ function App() {
     
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Login/>}/>
+        <Route path="/" element={<Calificaciones/>}/>
         <Route path="/calificaciones" element={<Calificaciones/>}/>
       </Routes>
     </HashRouter>
