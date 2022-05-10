@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Menu from './Menu'
 
 const ProgramarEvento = () => {
     const [nombre, setnombre] = useState('')
@@ -37,8 +38,11 @@ const ProgramarEvento = () => {
     }
 
   return (
+      <>
+      <Menu/>
     <div className='container d-flex justify-content-center align-items-center h-100 w-100'>
         <div class="form-group">
+    <form>
     <label for="exampleInputEmail1">Nombre</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
     <small id="emailHelp" class="form-text text-muted">Intenta usar diferentes nombres para identificarlos</small>
@@ -48,7 +52,9 @@ const ProgramarEvento = () => {
     <input type="date" class="form-control" id="exampleInputPassword1" placeholder="" onChange={changeFecha}/>
   </div>
   <button  class="btn btn-primary" onClick={enviar}>Programar</button>
+  </form>
     </div>
+    </>
   )
 }
 
