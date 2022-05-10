@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SockJsClient from 'react-stomp';
-import Menu from '../../../../gisnet/e-gisfil-gestor-frontend/src/modules/Menu';
+import Menu from './Menu';
+
 
 const Calificaciones = () => {
   const SOCKET_URL = 'https://calificador-eventos.herokuapp.com/ws'
