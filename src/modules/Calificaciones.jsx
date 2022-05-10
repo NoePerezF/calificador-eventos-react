@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SockJsClient from 'react-stomp';
 
 const Calificaciones = () => {
@@ -6,13 +6,39 @@ const Calificaciones = () => {
   const [ejecucion, setejecucion] = useState([])
   const [impresion, setimpresion] = useState([])
   const [dificultad, setdificultad] = useState([])
+  const [activo, setactivo] = useState(false)
   const onMessageReceived = (m) => {
     console.log(m);
     setejecucion(m.ejecucion)
     setimpresion(m.impresionArtistica)
     setdificultad(m.dificultad)
   }
+  useEffect(() => {
+    try{
+      const response = await fetch('https://calificador-eventos.herokuapp.com/api/eventoactivo',{ 
+          headers : { 'Content-Type': 'application/json' },
+          method: 'POST',
+          mode: 'cors', // <---
+          cache: 'default',
+          body: requestJson
+        })
+      const responseJson = await response.json()
+      if(responseJson.status !== 2){
+          setactivo(true)
+      }
+    }
+    catch(e){
+      console.log("Error : "+e);
+    }
+  }, [])
+  
   return (
+    !activo ? 
+    <div className='container d-flex justify-content-center align-items-center h-100 '>
+      <div className='container  align-items-center justify-content-center  '>
+        <h1>No hay evento activo</h1>
+      </div>
+    </div> :
     <div className='container d-flex justify-content-center align-items-center h-100 '>
       <div className='container  align-items-center justify-content-center  '>
     <SockJsClient
@@ -27,7 +53,7 @@ const Calificaciones = () => {
       {ejecucion.map(juez => {
         return(
           <div className='text-center'>
-          <h3 className='mr-5'>{juez.nombre}</h3>
+          <h3 className='mr-5'>{juez.juez.nombre}</h3>
           <h3 className='mr-5'>{juez.calificacion}</h3>
           </div>
         )
@@ -48,7 +74,7 @@ const Calificaciones = () => {
       {impresion.map(juez => {
         return(
           <div className='text-center'>
-          <h3 className='mr-5'>{juez.nombre}</h3>
+          <h3 className='mr-5'>{juez.juez.nombre}</h3>
           <h3 className='mr-5'>{juez.calificacion}</h3>
           </div>
         )
@@ -68,7 +94,7 @@ const Calificaciones = () => {
       {dificultad.map(juez => {
         return(
           <div className='text-center'>
-          <h3 className='mr-5'>{juez.nombre}</h3>
+          <h3 className='mr-5'>{juez.juez.nombre}</h3>
           <h3 className='mr-5'>{juez.calificacion}</h3>
           </div>
         )
