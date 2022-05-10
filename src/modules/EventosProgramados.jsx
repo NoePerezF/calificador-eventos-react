@@ -31,6 +31,30 @@ const EventosProgramados = () => {
         const year = date.getFullYear()
         return day + "-" + month + "-" + year
     }
+
+    const activarEvento = async(e)=>{
+        const evento = {id: e.target.id}
+        const bodyJson = JSON.stringify(evento)
+        try{
+            const response = await fetch('https://calificador-eventos.herokuapp.com/api/activarevento',{ 
+                headers : { 'Content-Type': 'application/json' },
+                method: 'POST',
+                mode: 'cors', // <---
+                cache: 'default',
+                body: bodyJson
+              })
+            const responseJson = await response.json()
+            if(responseJson.status === 1){
+                window.location.reload()
+            }
+            console.log("Error: "+responseJson.mensaje);
+            
+                
+        }
+        catch(e){
+            console.log("Error : "+e);
+        }
+    }
     
   return (
     <>
@@ -61,13 +85,14 @@ const EventosProgramados = () => {
                          <td>Error</td>
                         }
                         
-                        <th scope="col"><button type="button" class="btn btn-success">Activar</button></th>
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id}>Activar</button></th>
                     </tr>
                     )
                 })}
                 
   </tbody>
 </table>
+    
     </>
   )
 }
