@@ -21,6 +21,16 @@ const EventosProgramados = () => {
           }
           getEventos()
     }, [])
+
+    const getDate = ( times) => {
+        const date = new Date(times)
+        let month = date.getMonth()
+        month < 10 ? month = '0'+month : month = month
+        let day = date.getDate()
+        day < 10 ? day = '0'+day : day = day
+        const year = date.getFullYear()
+        return day + "-" + month + "-" + year
+    }
     
   return (
     <>
@@ -39,7 +49,7 @@ const EventosProgramados = () => {
                     return(
                     <tr>
                         <td>{e.nombre}</td>
-                        <td>{new Date(e.fecha)}</td>
+                        <td>{getDate(e.fecha)}</td>
                         {e.stado === 1 ? 
                             <td>Creado</td> :
                          e.estado === 2 ?
