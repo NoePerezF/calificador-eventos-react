@@ -1,5 +1,6 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Calificaciones from "./modules/Calificaciones";
+import EventosProgramados from "./modules/EventosProgramados";
 import Login from "./modules/Login";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Calificaciones/>}/>
         <Route path="/calificaciones" element={<Calificaciones/>}/>
+        <Route path="/eventos" element={<EventosProgramados/>}/>
       </Routes>
     </HashRouter>
   );

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
   return (
@@ -9,7 +10,7 @@ const Menu = () => {
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="#">Evento Activo</a>
-      <a class="nav-item nav-link" href="#">Eventos programados</a>
+      <Link to="/eventos" className='nav-item nav-link'>Eventos programados</Link>
       <a class="nav-item nav-link" href="#">Programar evento</a>
     </div>
   </div>
