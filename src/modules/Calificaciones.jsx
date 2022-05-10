@@ -18,10 +18,9 @@ const Calificaciones = () => {
       try{
         const response = await fetch('https://calificador-eventos.herokuapp.com/api/eventoactivo',{ 
             headers : { 'Content-Type': 'application/json' },
-            method: 'POST',
+            method: 'GET',
             mode: 'cors', // <---
             cache: 'default',
-            body: requestJson
           })
         const responseJson = await response.json()
         if(responseJson.status !== 2){
