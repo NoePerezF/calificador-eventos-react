@@ -39,9 +39,19 @@ const EventosProgramados = () => {
                     return(
                     <tr>
                         <td>{e.nombre}</td>
-                        <td>{e.fecha}</td>
-                        <td>{e.estado}</td>
-                        <th scope="col">Activar</th>
+                        <td>{new Date(e.fecha)}</td>
+                        {e.stado === 1 ? 
+                            <td>Creado</td> :
+                         e.estado === 2 ?
+                         <td>Activo</td>:
+                         e.estado === 3 ?
+                         <td>Terminado</td> :
+                         e.estado === 4 ?
+                         <td>Cancelado</td> :
+                         <td>Error</td>
+                        }
+                        
+                        <th scope="col"><button type="button" class="btn btn-success">Activar</button></th>
                     </tr>
                     )
                 })}
