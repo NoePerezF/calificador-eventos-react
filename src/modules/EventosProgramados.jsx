@@ -48,7 +48,7 @@ const EventosProgramados = () => {
                 window.location.reload()
             }
             console.log("Error: "+responseJson.mensaje);
-            
+
                 
         }
         catch(e){
@@ -85,7 +85,7 @@ const EventosProgramados = () => {
                          <td>Error</td>
                         }
                         
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id}>Activar</button></th>
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button></th>
                     </tr>
                     )
                 })}
