@@ -111,7 +111,7 @@ const EventosProgramados = () => {
                        { e.estado === 1 ?
                         <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button></th>:
                         e.estado === 2 ?
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={cancelarEvento}>Cancelar</button></th>:
+                        <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Cancelar</button></th>:
                         <></>
                        }
                     </tr>
