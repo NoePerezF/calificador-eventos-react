@@ -19,10 +19,8 @@ const AnadirRutina = ({evento}) => {
                 body: bodyJson
               })
             const responseJson = await response.json()
-            if(responseJson.status === 1){
-                window.location.reload()
-            }
-            console.log("Error: "+responseJson.mensaje);
+            document.getElementById('nombrerutina').value = ""
+            console.log("Error: "+responseJson.mensaje)
 
                 
         }
@@ -38,8 +36,8 @@ const AnadirRutina = ({evento}) => {
     <form>
         <div class="form-group">
     
-    <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
+    <label for="nombrerutina">Nombre</label>
+    <input type="text" class="form-control" id="nombrerutina" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
   </div>
   <button  class="btn btn-primary" onClick={enviar}>Programar</button>
   </form>
