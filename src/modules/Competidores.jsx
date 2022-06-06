@@ -1,16 +1,7 @@
-import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
-import Menu from './Menu'
+import React from 'react'
 
-const Rutinas = ({evento,setrutina}) => {
-    const [redirect, setredirect] = useState(0)
-  const anadirCompetidores = (e) => {
-    const rutina = evento.rutinas.filter(r => r.id === e.target.id)
-    setrutina(rutina[0])
-    setredirect(1)
-  }
+const Competidores = ({rutina}) => {
   return (
-      redirect === 0 ?
     <>
         <Menu/>
         <table class="table">
@@ -22,7 +13,7 @@ const Rutinas = ({evento,setrutina}) => {
             </tr>
             </thead>
             <tbody>
-                {evento.rutinas.map(e =>{
+                {rutina.Competidores.map(e =>{
                     return(
                     <tr>
                         <td>{e.nombre}</td>
@@ -36,8 +27,6 @@ const Rutinas = ({evento,setrutina}) => {
                          <td>Cancelado</td> :
                          <td>Error</td>
                         }
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
-                        </th>
                     </tr>
                     )
                 })}
@@ -46,9 +35,8 @@ const Rutinas = ({evento,setrutina}) => {
   </tbody>
 </table>
     
-    </>: redirect === 1 ?
-    <Navigate to={"/anadircompetidor"}/>:<></>
+    </>
   )
 }
 
-export default Rutinas
+export default Competidores
