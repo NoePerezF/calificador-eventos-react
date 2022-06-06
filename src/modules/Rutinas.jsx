@@ -6,8 +6,15 @@ const Rutinas = ({evento,setrutina}) => {
     const [redirect, setredirect] = useState(0)
   const anadirCompetidores = (e) => {
     const rutina = evento.rutinas.filter(r => r.id === e.target.id)
+    console.log(rutina);
     setrutina(rutina[0])
     setredirect(1)
+  }
+  const verCompetidores = (e) =>{
+    const rutina = evento.rutinas.filter(r => r.id === e.target.id)
+    console.log(rutina);
+    setrutina(rutina[0])
+    setredirect(2)
   }
   return (
       redirect === 0 ?
@@ -37,6 +44,7 @@ const Rutinas = ({evento,setrutina}) => {
                          <td>Error</td>
                         }
                         <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
+                        <button type="button" class="btn btn-success" id={e.id} onClick={verCompetidores}>Ver competidores</button>
                         </th>
                     </tr>
                     )
@@ -47,7 +55,10 @@ const Rutinas = ({evento,setrutina}) => {
 </table>
     
     </>: redirect === 1 ?
-    <Navigate to={"/anadircompetidor"}/>:<></>
+    <Navigate to={"/anadircompetidor"}/>:
+    redirect === 2 ?
+    <Navigate to={"/competidores"}/>:
+    <></>
   )
 }
 
