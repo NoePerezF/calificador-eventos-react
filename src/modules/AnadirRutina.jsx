@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Menu from './Menu';
 
 const AnadirRutina = ({evento}) => {
+    const [nombre, setnombre] = useState('')
+    const changeNombre = (e)=>{
+        setnombre(e.target.value)
+    }
     const enviar = async() =>{
         const rutina = {nombre : nombre,evento : evento}
         console.log(rutina);
