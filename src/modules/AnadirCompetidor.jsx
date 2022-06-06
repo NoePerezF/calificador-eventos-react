@@ -8,7 +8,7 @@ const AnadirCompetidor = ({rutina}) => {
     }
     const enviar = async() =>{
         const competidor = {nombre : nombre,rutina : rutina}
-        console.log(cometidor);
+        console.log(competidor);
         const bodyJson = JSON.stringify(competidor)
         try{
             const response = await fetch('https://calificador-eventos.herokuapp.com/api/nuevocompetidor',{ 

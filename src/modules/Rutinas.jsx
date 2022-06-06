@@ -35,12 +35,12 @@ const Rutinas = ({evento,setrutina}) => {
                          <td>Cancelado</td> :
                          <td>Error</td>
                         }
-                      
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
+                        </th>
                     </tr>
                     )
                 })}
-                <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
-                </th>
+                
                 
   </tbody>
 </table>
