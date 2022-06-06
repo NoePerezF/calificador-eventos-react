@@ -20,9 +20,7 @@ const AnadirRutina = ({evento}) => {
               })
             const responseJson = await response.json()
             document.getElementById('nombrerutina').value = ""
-            console.log("Error: "+responseJson.mensaje)
-
-                
+            console.log("Error: "+responseJson.mensaje)     
         }
         catch(e){
             console.log("Error : "+e);
