@@ -100,7 +100,7 @@ const EventosProgramados = ({setevento}) => {
             console.log("Error : "+e);
         }
     }
-    const verRutinas = (e)=>{
+    const verRutinas = async(e)=>{
         const evento = {id: e.target.id}
         const bodyJson = JSON.stringify(evento)
         try{
