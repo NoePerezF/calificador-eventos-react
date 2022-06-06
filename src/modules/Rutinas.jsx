@@ -6,13 +6,13 @@ const Rutinas = ({evento,setrutina}) => {
     const [redirect, setredirect] = useState(0)
   const anadirCompetidores = (e) => {
       console.log(evento);
-    const rutina = evento.rutinas.filter(r => r.id === e.target.id)
+    const rutina = evento.rutinas.filter(r => r.id === parseInt(e.target.id))
     console.log(rutina);
     setrutina(rutina[0])
     setredirect(1)
   }
   const verCompetidores = (e) =>{
-    const rutina = evento.rutinas.filter(r => r.id === e.target.id)
+    const rutina = evento.rutinas.filter(r => r.id === parseInt(e.target.id))
     console.log(rutina);
     setrutina(rutina[0])
     setredirect(2)
