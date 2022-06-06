@@ -100,7 +100,25 @@ const EventosProgramados = ({setevento}) => {
             console.log("Error : "+e);
         }
     }
-    
+    const verRutinas = (e)=>{
+        const evento = {id: e.target.id}
+        const bodyJson = JSON.stringify(evento)
+        try{
+            const response = await fetch('https://calificador-eventos.herokuapp.com/api/evento',{ 
+                headers : { 'Content-Type': 'application/json' },
+                method: 'POST',
+                mode: 'cors', // <---
+                cache: 'default',
+                body: bodyJson
+              })
+            const responseJson = await response.json()
+            setevento(responseJson)
+            setredirect(2)
+        }
+        catch(e){
+            console.log("Error : "+e);
+        }
+    }
   return (
       redirect === 0 ?
     <>
@@ -134,7 +152,7 @@ const EventosProgramados = ({setevento}) => {
                        <>
                         <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button>
                         <button type="button" class="btn btn-success" id={e.id} onClick={getEvento}>Añadir rutina</button>
-                        <button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Rutinas</button></th>
+                        <button type="button" class="btn btn-success" id={e.id} onClick={verRutinas}>Rutinas</button></th>
                         </>:
                         e.estado === 2 ?
                         <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Cancelar</button></th>:
@@ -147,8 +165,10 @@ const EventosProgramados = ({setevento}) => {
   </tbody>
 </table>
     
-    </>: redirect == 1?
-    <Navigate to={"/anadirrutina"}/>:<></>
+    </>: redirect === 1?
+    <Navigate to={"/anadirrutina"}/>: redirect ===2 ?
+    <Navigate to={"/rutinas"}/>:
+    <></>
   )
 }
 
