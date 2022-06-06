@@ -5,6 +5,7 @@ import Menu from './Menu'
 const Rutinas = ({evento,setrutina}) => {
     const [redirect, setredirect] = useState(0)
   const anadirCompetidores = (e) => {
+      console.log(evento);
     const rutina = evento.rutinas.filter(r => r.id === e.target.id)
     console.log(rutina);
     setrutina(rutina[0])
