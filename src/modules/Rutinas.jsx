@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import Menu from './Menu'
 
-const Rutinas = ({evento}) => {
+const Rutinas = ({evento,setrutina}) => {
+    const [redirect, setredirect] = useState(0)
+  const anadirCompetidores = (e) => {
+    setrutina({id: e.target.id})
+    setredirect(1)
+  }
   return (
+      redirect === 0 ?
     <>
         <Menu/>
         <table class="table">
@@ -32,11 +39,14 @@ const Rutinas = ({evento}) => {
                     </tr>
                     )
                 })}
+                <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
+                </th>
                 
   </tbody>
 </table>
     
-    </>
+    </>: redirect === 1 ?
+    <Navigate to={"/anadircompetidor"}/>:<></>
   )
 }
 
