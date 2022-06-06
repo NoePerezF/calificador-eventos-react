@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import Menu from './Menu'
 
-const EventosProgramados = () => {
+const EventosProgramados = ({setevento}) => {
     const [eventos, seteventos] = useState([])
+    const [redirect, setredirect] = useState(0)
     useEffect(() => {
         const getEventos = async() =>{
             try{
@@ -79,8 +81,28 @@ const EventosProgramados = () => {
             console.log("Error : "+e);
         }
     }
+    const getEvento = async(e)=>{
+        const evento = {id: e.target.id}
+        const bodyJson = JSON.stringify(evento)
+        try{
+            const response = await fetch('https://calificador-eventos.herokuapp.com/api/evento',{ 
+                headers : { 'Content-Type': 'application/json' },
+                method: 'POST',
+                mode: 'cors', // <---
+                cache: 'default',
+                body: bodyJson
+              })
+            const responseJson = await response.json()
+            setevento(responseJson)
+            setredirect(1)
+        }
+        catch(e){
+            console.log("Error : "+e);
+        }
+    }
     
   return (
+      redirect === 1 ?
     <>
         <Menu/>
         <table class="table">
@@ -109,7 +131,11 @@ const EventosProgramados = () => {
                          <td>Error</td>
                         }
                        { e.estado === 1 ?
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button></th>:
+                       <>
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button></th>
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={getEvento}>Añadir rutina</button></th>
+                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Rutinas</button></th>
+                        </>:
                         e.estado === 2 ?
                         <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Cancelar</button></th>:
                         <></>
@@ -121,7 +147,8 @@ const EventosProgramados = () => {
   </tbody>
 </table>
     
-    </>
+    </>:
+    <Navigate to={"/anadirrutina"}/>
   )
 }
 
