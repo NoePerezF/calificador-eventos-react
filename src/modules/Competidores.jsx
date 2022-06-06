@@ -14,7 +14,7 @@ const Competidores = ({rutina}) => {
             </tr>
             </thead>
             <tbody>
-                {rutina.Competidores.map(e =>{
+                {rutina.competidores.map(e =>{
                     return(
                     <tr>
                         <td>{e.nombre}</td>
