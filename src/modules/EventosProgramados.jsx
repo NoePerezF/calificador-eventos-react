@@ -102,7 +102,7 @@ const EventosProgramados = ({setevento}) => {
     }
     
   return (
-      redirect === 1 ?
+      redirect === 0 ?
     <>
         <Menu/>
         <table class="table">
@@ -147,8 +147,8 @@ const EventosProgramados = ({setevento}) => {
   </tbody>
 </table>
     
-    </>:
-    <Navigate to={"/anadirrutina"}/>
+    </>: redirect == 1?
+    <Navigate to={"/anadirrutina"}/>:<></>
   )
 }
 
