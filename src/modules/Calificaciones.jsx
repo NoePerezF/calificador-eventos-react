@@ -33,6 +33,9 @@ const Calificaciones = () => {
             const competidor = rutina.competidores.filter(c => c.estado === 2)[0]
             setrutina(rutina)
             setcompetidor(competidor)
+            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 1));
+            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 2));
+            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 3));
             setejecucion(competidor.calificaciones.filter(c => c.juez.tipo === 1))
           setimpresion(competidor.calificaciones.filter(c => c.juez.tipo === 2))
           setdificultad(competidor.calificaciones.filter(c => c.juez.tipo === 3))
