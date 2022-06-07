@@ -84,8 +84,8 @@ const Calificaciones = () => {
       onDisconnect={console.log("Disconnected!")}
       onMessage={msg => onMessageReceived(msg)}
       debug={false}/>
-      <h1>{rutina.nombre}</h1>
-      <h1>{competidor.nombre}</h1>
+      <h1>Rutina: {rutina.nombre}</h1>
+      <h1>Competidor: {competidor.nombre}</h1>
       <div className='row mb-5'>
       <h3 className='mr-5'>Ejecucion</h3>
       {ejecucion.map(juez => {
