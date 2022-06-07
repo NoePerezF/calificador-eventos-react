@@ -13,9 +13,13 @@ const Calificaciones = () => {
   const [competidor, setcompetidor] = useState({})
   const onMessageReceived = (m) => {
     console.log(m);
-    setejecucion(m.ejecucion)
-    setimpresion(m.impresionArtistica)
-    setdificultad(m.dificultad)
+    const rutina = m.rutinas.filter(r => r.estado === 2)[0]
+            const competidor = rutina.competidores.filter(c => c.estado === 2)[0]
+            setrutina(rutina)
+            setcompetidor(competidor)
+            setejecucion(competidor.calificaciones.filter(c => c.juez.tipo === 1))
+          setimpresion(competidor.calificaciones.filter(c => c.juez.tipo === 2))
+          setdificultad(competidor.calificaciones.filter(c => c.juez.tipo === 3))
   }
   useEffect(() => {
     const isEventoActivo = async() =>{
@@ -33,9 +37,6 @@ const Calificaciones = () => {
             const competidor = rutina.competidores.filter(c => c.estado === 2)[0]
             setrutina(rutina)
             setcompetidor(competidor)
-            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 1));
-            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 2));
-            console.log(competidor.calificaciones.filter(c => c.juez.tipo === 3));
             setejecucion(competidor.calificaciones.filter(c => c.juez.tipo === 1))
           setimpresion(competidor.calificaciones.filter(c => c.juez.tipo === 2))
           setdificultad(competidor.calificaciones.filter(c => c.juez.tipo === 3))
