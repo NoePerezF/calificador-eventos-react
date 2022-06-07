@@ -62,7 +62,7 @@ const EventosProgramados = ({setevento}) => {
         const evento = {id: e.target.id}
         const bodyJson = JSON.stringify(evento)
         try{
-            const response = await fetch('https://calificador-eventos.herokuapp.com/api/cancelarevento',{ 
+            const response = await fetch('https://calificador-eventos.herokuapp.com/api/terminarevento',{ 
                 headers : { 'Content-Type': 'application/json' },
                 method: 'POST',
                 mode: 'cors', // <---
@@ -155,7 +155,7 @@ const EventosProgramados = ({setevento}) => {
                         <button type="button" class="btn btn-success" id={e.id} onClick={verRutinas}>Rutinas</button></th>
                         </>:
                         e.estado === 2 ?
-                        <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Cancelar</button></th>:
+                        <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Terminas</button></th>:
                         <></>
                        }
                     </tr>

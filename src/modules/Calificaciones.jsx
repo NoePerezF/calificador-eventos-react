@@ -45,7 +45,22 @@ const Calificaciones = () => {
     isEventoActivo()
     
   }, [])
-  
+  const siguiente = async()=>{
+    try{
+      const response = await fetch('https://calificador-eventos.herokuapp.com/api/siguiente',{ 
+          headers : { 'Content-Type': 'application/json' },
+          method: 'GET',
+          mode: 'cors', // <---
+          cache: 'default',
+        })
+      const responseJson = await response.json()
+      console.log("Error : "+responseJson);
+      window.location.reload()
+    }
+    catch(e){
+      console.log("Error : "+e);
+    }
+  }
   return (
     
     <>
@@ -129,6 +144,7 @@ const Calificaciones = () => {
       </div>
 
       </div>
+      <button  class="btn btn-primary" onClick={siguiente}>Sigueinte</button>
   </div>
 }
   </>
