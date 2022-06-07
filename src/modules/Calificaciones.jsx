@@ -9,6 +9,8 @@ const Calificaciones = () => {
   const [impresion, setimpresion] = useState([])
   const [dificultad, setdificultad] = useState([])
   const [activo, setactivo] = useState(false)
+  const [rutina, setrutina] = useState({})
+  const [competidor, setcompetidor] = useState(second)
   const onMessageReceived = (m) => {
     console.log(m);
     setejecucion(m.ejecucion)
@@ -27,9 +29,13 @@ const Calificaciones = () => {
         const responseJson = await response.json()
         if(responseJson.status !== 2){
             setactivo(true)
-            setejecucion(responseJson.ejecucion)
-          setimpresion(responseJson.impresionArtistica)
-          setdificultad(responseJson.dificultad)
+            const rutina = responseJson.rutinas.filter(r => r.estado === 2)[0]
+            const competidor = rutina.competidores.filter(c => c.estado === 2)[0]
+            setrutina(rutina)
+            setcompetidor(competidor)
+            setejecucion(competidor.calificaciones.filter(c => c.juez.tipo === 1))
+          setimpresion(competidor.calificaciones.filter(c => c.juez.tipo === 2))
+          setdificultad(competidor.calificaciones.filter(c => c.juez.tipo === 3))
         }
       }
       catch(e){
@@ -59,6 +65,8 @@ const Calificaciones = () => {
       onDisconnect={console.log("Disconnected!")}
       onMessage={msg => onMessageReceived(msg)}
       debug={false}/>
+      <h1>{rutina.nombre}</h1>
+      <h1>{competidor.nombre}</h1>
       <div className='row mb-5'>
       <h3 className='mr-5'>Ejecucion</h3>
       {ejecucion.map(juez => {
