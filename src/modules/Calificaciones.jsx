@@ -10,7 +10,7 @@ const Calificaciones = () => {
   const [dificultad, setdificultad] = useState([])
   const [activo, setactivo] = useState(false)
   const [rutina, setrutina] = useState({})
-  const [competidor, setcompetidor] = useState(second)
+  const [competidor, setcompetidor] = useState({})
   const onMessageReceived = (m) => {
     console.log(m);
     setejecucion(m.ejecucion)
