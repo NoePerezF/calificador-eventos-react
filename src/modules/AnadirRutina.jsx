@@ -30,6 +30,12 @@ const AnadirRutina = ({evento}) => {
   return (
     <>
     <Menu/>
+    <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
     <div className='container d-flex justify-content-center align-items-center h-100 w-100'>
     <form>
         <div class="form-group">
@@ -39,6 +45,7 @@ const AnadirRutina = ({evento}) => {
   </div>
   <button  class="btn btn-primary" onClick={enviar}>Programar</button>
   </form>
+    </div>
     </div>
     </>
   )

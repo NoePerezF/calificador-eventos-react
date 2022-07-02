@@ -21,7 +21,13 @@ const Rutinas = ({evento,setrutina}) => {
       redirect === 0 ?
     <>
         <Menu/>
-        <table class="table">
+        <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
+        <table class="table table-dark text-center">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre</th>
@@ -44,8 +50,8 @@ const Rutinas = ({evento,setrutina}) => {
                          <td>Cancelado</td> :
                          <td>Error</td>
                         }
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
-                        <button type="button" class="btn btn-success" id={e.id} onClick={verCompetidores}>Ver competidores</button>
+                        <th scope="col"><button type="button" className='btn btn-success mr-3' id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
+                        <button type="button" className='btn btn-success mr-3' id={e.id} onClick={verCompetidores}>Ver competidores</button>
                         </th>
                     </tr>
                     )
@@ -54,7 +60,7 @@ const Rutinas = ({evento,setrutina}) => {
                 
   </tbody>
 </table>
-    
+    </div>
     </>: redirect === 1 ?
     <Navigate to={"/anadircompetidor"}/>:
     redirect === 2 ?

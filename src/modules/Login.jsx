@@ -29,7 +29,7 @@ const Login = () => {
   return (
       !red ?
     <div className='d-flex justify-content-center align-items-center h-100'>
-        <button type='button' className='btn btn-primary' onClick={crearEvento}>Crear nuevo evento</button>
+        <button type='button' className='btn btn-primary' onClick={crearEvento}>Crear nueva competencia</button>
     </div> : <Navigate to={"/calificaciones"}/>
   )
 }

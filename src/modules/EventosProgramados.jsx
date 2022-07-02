@@ -123,8 +123,14 @@ const EventosProgramados = ({setevento}) => {
       redirect === 0 ?
     <>
         <Menu/>
-        <table class="table">
-            <thead class="thead-dark">
+        <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
+        <table class="table table-dark">
+            <thead class="thead-dark text-center">
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha</th>
@@ -132,7 +138,7 @@ const EventosProgramados = ({setevento}) => {
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody className='text-white text-center'>
                 {eventos.map(e =>{
                     return(
                     <tr>
@@ -150,13 +156,13 @@ const EventosProgramados = ({setevento}) => {
                         }
                        { e.estado === 1 ?
                        <>
-                        <th scope="col"><button type="button" class="btn btn-success" id={e.id} onClick={activarEvento}>Activar</button>
-                        <button type="button" class="btn btn-success" id={e.id} onClick={getEvento}>Añadir rutina</button>
-                        <button type="button" class="btn btn-success" id={e.id} onClick={verRutinas}>Rutinas</button></th>
+                        <th scope="col"><button type="button" className="btn btn-success mr-3" id={e.id} onClick={activarEvento}>Activar</button>
+                        <button type="button" className="btn btn-success mr-3"  id={e.id} onClick={getEvento}>Añadir evento</button>
+                        <button type="button" className="btn btn-success mr-3"  id={e.id} onClick={verRutinas}>Eventos</button></th>
                         </>:
                         e.estado === 2 ?
-                        <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Terminas</button></th>:
-                        <></>
+                        <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Terminar</button></th>:
+                        <th scope="col"></th>
                        }
                     </tr>
                     )
@@ -164,7 +170,7 @@ const EventosProgramados = ({setevento}) => {
                 
   </tbody>
 </table>
-    
+    </div>
     </>: redirect === 1?
     <Navigate to={"/anadirrutina"}/>: redirect ===2 ?
     <Navigate to={"/rutinas"}/>:

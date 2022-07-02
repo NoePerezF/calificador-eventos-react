@@ -5,15 +5,20 @@ const Competidores = ({rutina}) => {
   return (
     <>
         <Menu/>
-        <table class="table">
-            <thead class="thead-dark">
+        <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
+        <table class="table table-dark">
+            <thead class="thead-dark text-center">
             <tr>
-                <th scope="col">Nombre</th>
+                <th scope="col">Orden</th>
                 <th scope="col">Status</th>
-                <th scope="col">Acciones</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody className='text-center'>
                 {rutina.competidores.map(e =>{
                     return(
                     <tr>
@@ -35,7 +40,7 @@ const Competidores = ({rutina}) => {
                 
   </tbody>
 </table>
-    
+    </div>
     </>
   )
 }

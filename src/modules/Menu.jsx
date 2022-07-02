@@ -9,9 +9,9 @@ const Menu = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Evento Activo</a>
-      <Link to="/eventos" className='nav-item nav-link'>Eventos programados</Link>
-      <Link to="/nuevoevento" className='nav-item nav-link'>Programar evento</Link>
+      <a class="nav-item nav-link" href="#">Competencia Activa</a>
+      <Link to="/eventos" className='nav-item nav-link'>Competencias programadas</Link>
+      <Link to="/nuevoevento" className='nav-item nav-link'>Programar competencia</Link>
     </div>
   </div>
 </nav>

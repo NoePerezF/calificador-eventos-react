@@ -41,12 +41,18 @@ const ProgramarEvento = () => {
   return (
       <>
       <Menu/>
+      <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
     <div className='container d-flex justify-content-center align-items-center h-100 w-100'>
     <form>
         <div class="form-group">
     
     <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre de la competencia" required onChange={changeNombre}/>
     <small id="emailHelp" class="form-text text-muted">Intenta usar diferentes nombres para identificarlos</small>
   </div>
   <div class="form-group">
@@ -55,6 +61,7 @@ const ProgramarEvento = () => {
   </div>
   <button  class="btn btn-primary" onClick={enviar}>Programar</button>
   </form>
+    </div>
     </div>
     </>
   )

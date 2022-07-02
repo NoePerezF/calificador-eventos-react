@@ -30,15 +30,22 @@ const AnadirCompetidor = ({rutina}) => {
   return (
     <>
     <Menu/>
+    <div style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center top',
+      backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
     <div className='container d-flex justify-content-center align-items-center h-100 w-100'>
     <form>
         <div class="form-group">
     
-    <label for="nombrerutina">Nombre</label>
-    <input type="text" class="form-control" id="nombrerutina" aria-describedby="emailHelp" placeholder="Nombre del evento" required onChange={changeNombre}/>
+    <label for="nombrerutina">Orden</label>
+    <input type="number" class="form-control" id="nombrerutina" aria-describedby="emailHelp" placeholder="Orden" required onChange={changeNombre}/>
   </div>
   <button  class="btn btn-primary" onClick={enviar}>Programar</button>
   </form>
+    </div>
     </div>
     </>
   )
