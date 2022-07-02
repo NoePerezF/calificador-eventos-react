@@ -87,6 +87,12 @@ const Calificaciones = () => {
       backgroundSize: '100% auto',
       backgroundPosition: 'center top',
       backgroundAttachment: 'fixed'}} className = "h-100 w-100">
+    <div className='row ml-5 mt-3'>
+      <h1>Rutina: {rutina.nombre}</h1>
+    </div>
+    <div className='row ml-5 mt-3'>
+      <h1>Competidor: {competidor.nombre}</h1>
+    </div>
     <div className='container d-flex justify-content-center align-items-center h-100 '>
       <div className='container  align-items-center justify-content-center  '>
     <SockJsClient
@@ -96,8 +102,6 @@ const Calificaciones = () => {
       onDisconnect={console.log("Disconnected!")}
       onMessage={msg => onMessageReceived(msg)}
       debug={false}/>
-      <h1>Rutina: {rutina.nombre}</h1>
-      <h1>Competidor: {competidor.nombre}</h1>
       <div className='row mb-5'>
       <h3 className='mr-5'>Ejecucion</h3>
       {ejecucion.map(juez => {
