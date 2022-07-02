@@ -70,12 +70,18 @@ const Calificaciones = () => {
     <>
     <Menu/>
     {!activo ? 
-    <div className='container d-flex justify-content-center align-items-center h-100 '>
+    <div className='container d-flex justify-content-center align-items-center h-100 '
+    style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',}}>
       <div className='container  align-items-center justify-content-center  '>
         <h1>No hay evento activo</h1>
       </div>
     </div> :
-    <div className='container d-flex justify-content-center align-items-center h-100 '>
+    <div className='container d-flex justify-content-center align-items-center h-100 '
+    style={{ 
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
+      backgroundRepeat: 'no-repeat',}}>
       <div className='container  align-items-center justify-content-center  '>
     <SockJsClient
       url={SOCKET_URL}
