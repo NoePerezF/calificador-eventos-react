@@ -73,14 +73,16 @@ const Calificaciones = () => {
     <div className='container d-flex justify-content-center align-items-center h-100 '
     style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
-      backgroundRepeat: 'no-repeat',}}>
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100%'}}>
       <div className='container  align-items-center justify-content-center  '>
         <h1>No hay evento activo</h1>
       </div>
     </div> :
     <div style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
-      backgroundRepeat: 'no-repeat',}} className = "h-100 w-100">
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100%'}} className = "h-100 w-100">
     <div className='container d-flex justify-content-center align-items-center h-100 '>
       <div className='container  align-items-center justify-content-center  '>
     <SockJsClient
