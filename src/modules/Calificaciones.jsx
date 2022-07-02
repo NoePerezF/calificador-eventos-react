@@ -78,10 +78,10 @@ const Calificaciones = () => {
         <h1>No hay evento activo</h1>
       </div>
     </div> :
-    <div className='container d-flex justify-content-center align-items-center h-100 '
-    style={{ 
+    <div style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
-      backgroundRepeat: 'no-repeat',}}>
+      backgroundRepeat: 'no-repeat',}} className = "h-100 w-100">
+    <div className='container d-flex justify-content-center align-items-center h-100 '>
       <div className='container  align-items-center justify-content-center  '>
     <SockJsClient
       url={SOCKET_URL}
@@ -155,6 +155,7 @@ const Calificaciones = () => {
 
       </div>
       <button  class="btn btn-primary" onClick={siguiente}>Sigueinte</button>
+  </div>
   </div>
 }
   </>
