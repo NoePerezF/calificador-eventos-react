@@ -74,7 +74,7 @@ const Calificaciones = () => {
         })
       const responseJson = await response.json()
       console.log("Error : "+responseJson);
-      
+      window.location.reload()
     }
     catch(e){
       console.log("Error : "+e);
@@ -169,7 +169,7 @@ const Calificaciones = () => {
       
 
       </div>
-      <button  class="btn btn-primary" onClick={siguiente}>Sigueinte</button>
+      <button  class="btn btn-primary" onClick={siguiente}>Siguiente</button>
   </div>
   </div>
 }
