@@ -97,7 +97,7 @@ const Calificaciones = () => {
     </div> :
     <div style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/fondo.png'})`,
-      backgroundRepeat: 'no-repeat',
+      backgroundRepeat: 'repeat',
       backgroundSize: '100% auto',
       backgroundPosition: 'center top',
       backgroundAttachment: 'fixed'}} className = "h-100 w-100 text-white">
@@ -141,18 +141,6 @@ const Calificaciones = () => {
       })
       }
       </div>
-      <div className='row mb-5'>
-      <h3 className=' col-2 text-center pb-3 pt-3'>DIF</h3>
-      {dificultad.map(juez => {
-        return(
-          <div className='col-1 text-center ml-3 pb-3 pt-3' style={{backgroundColor:"#8fc9f2",borderRadius:'1rem'}}>
-            {juez.calificacion < 0 ? <h3 className='mr-5 col-1'></h3> : 
-          <h3 className=''>{juez.calificacion}</h3>
-        }
-          </div>
-        )
-      })}
-      </div>
       
       <div className='row mb-5'>
       <h3 className=' col-2 text-center pb-3 pt-3'>IMP ART</h3>
@@ -166,6 +154,18 @@ const Calificaciones = () => {
       })}
       </div>
 
+      <div className='row mb-5'>
+      <h3 className=' col-2 text-center pb-3 pt-3'>DIF</h3>
+      {dificultad.map(juez => {
+        return(
+          <div className='col-1 text-center ml-3 pb-3 pt-3' style={{backgroundColor:"#8fc9f2",borderRadius:'1rem'}}>
+            {juez.calificacion < 0 ? <h3 className='mr-5 col-1'></h3> : 
+          <h3 className=''>{juez.calificacion}</h3>
+        }
+          </div>
+        )
+      })}
+      </div>
       
 
       </div>
