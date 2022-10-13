@@ -17,6 +17,11 @@ const Rutinas = ({evento,setrutina}) => {
     setrutina(rutina[0])
     setredirect(2)
   }
+
+  const verReporte = (e) =>{
+    const win = window.open('https://calificador-eventos.herokuapp.com/api/generar-reporte/'+e.target.id, '_blank');
+    win.focus();  
+  }
   return (
       redirect === 0 ?
     <>
@@ -52,6 +57,7 @@ const Rutinas = ({evento,setrutina}) => {
                         }
                         <th scope="col"><button type="button" className='btn btn-success mr-3' id={e.id} onClick={anadirCompetidores}>Añadir competidores</button>
                         <button type="button" className='btn btn-success mr-3' id={e.id} onClick={verCompetidores}>Ver competidores</button>
+                        <button type="button" class="btn btn-info mr-3" id={e.id} onClick={verReporte}>Ver reporte</button>
                         </th>
                     </tr>
                     )

@@ -119,10 +119,7 @@ const EventosProgramados = ({setevento}) => {
             console.log("Error : "+e);
         }
     }
-    const verReporte = (e) =>{
-        const win = window.open('https://calificador-eventos.herokuapp.com/api/generar-reporte/'+e.target.id, '_blank');
-        win.focus();  
-    }
+    
     const eliminarEvento = async(e) =>{
         try{
             await fetch('https://calificador-eventos.herokuapp.com/api/delete-evento/'+e.target.id,{ 
@@ -179,7 +176,7 @@ const EventosProgramados = ({setevento}) => {
                         </>:
                         e.estado === 2 ?
                         <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Terminar</button></th>:
-                        <th scope="col"><button type="button" class="btn btn-info mr-3" id={e.id} onClick={verReporte}>Ver reporte</button>
+                        <th scope="col"><button type="button" className="btn btn-info mr-3"  id={e.id} onClick={verRutinas}>Eventos</button>
                         <button type="button" class="btn btn-danger" id={e.id} onClick={eliminarEvento}>Eliminar</button></th>
                        }
                     </tr>
