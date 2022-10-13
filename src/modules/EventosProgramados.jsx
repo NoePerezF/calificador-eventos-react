@@ -119,6 +119,23 @@ const EventosProgramados = ({setevento}) => {
             console.log("Error : "+e);
         }
     }
+    const verReporte = (e) =>{
+        const win = window.open('https://calificador-eventos.herokuapp.com/api/generar-reporte/'+e.target.id, '_blank');
+        win.focus();  
+    }
+    const eliminarEvento = async(e) =>{
+        try{
+            await fetch('https://calificador-eventos.herokuapp.com/api/delete-evento/'+e.target.id,{ 
+                method: 'DELETE',
+                mode: 'cors', // <---
+                cache: 'default',
+              })
+            window.location.reload();
+        }
+        catch(e){
+            console.log("Error : "+e);
+        }
+    }
   return (
       redirect === 0 ?
     <>
@@ -157,12 +174,13 @@ const EventosProgramados = ({setevento}) => {
                        { e.estado === 1 ?
                        <>
                         <th scope="col"><button type="button" className="btn btn-success mr-3" id={e.id} onClick={activarEvento}>Activar</button>
-                        <button type="button" className="btn btn-success mr-3"  id={e.id} onClick={getEvento}>Añadir evento</button>
-                        <button type="button" className="btn btn-success mr-3"  id={e.id} onClick={verRutinas}>Eventos</button></th>
+                        <button type="button" className="btn btn-warning mr-3"  id={e.id} onClick={getEvento}>Añadir evento</button>
+                        <button type="button" className="btn btn-info mr-3"  id={e.id} onClick={verRutinas}>Eventos</button></th>
                         </>:
                         e.estado === 2 ?
                         <th scope="col"><button type="button" class="btn btn-danger" id={e.id} onClick={cancelarEvento}>Terminar</button></th>:
-                        <th scope="col"></th>
+                        <th scope="col"><button type="button" class="btn btn-info mr-3" id={e.id} onClick={verReporte}>Ver reporte</button>
+                        <button type="button" class="btn btn-danger" id={e.id} onClick={eliminarEvento}>Eliminar</button></th>
                        }
                     </tr>
                     )
